@@ -1,6 +1,9 @@
 <?php
 error_reporting(E_ALL ^E_NOTICE);
 
+use Phalcon\Mvc\Micro;
+use Nystc\Models\Camera;
+
 try {
 
   /**
@@ -21,7 +24,7 @@ try {
   /**
    * Create Phalcon micro app
    */
-  $app = new \Phalcon\Mvc\Micro();
+  $app = new Micro();
   $app->setDI($di);
 
 
@@ -70,13 +73,39 @@ try {
 
 
   /**
-   * GET /cameras
+   * GET /locations
    */
-  $app->get('/cameras', function() use ($app) {
+  $app->get('/api/locations', function() use ($app) {
 
-    $news = $app['db']->query('SELECT * FROM camera');
+    $locations = $app->modelsManager->executeQuery("SELECT * FROM Nystc\Models\Location");
 
-    echo $app->util->response(200, array('Pong'));
+    $results = array();
+    foreach ($locations as $l) {
+      $results[] = $l->response();
+    }
+
+    echo json_encode($results);
+
+  });
+
+  /**
+   * GET /locations/$id
+   */
+  $app->get('/api/locations/{id}', function($id) use ($app) {
+
+    $result = $app->modelsManager
+      ->executeQuery("SELECT * FROM Nystc\Models\Location WHERE id = :id:", array('id' => $id))
+      ->getFirst();
+
+    if ($result) {
+
+      echo json_encode($result->response());
+
+    } else {
+    
+      $app->response->setStatusCode(404, 'Not Found')->sendHeaders();
+
+    }    
 
   });
 
@@ -99,6 +128,6 @@ try {
   error_log($e->getMessage());
 
   // Uncomment to help with debugging:
-  //print $e->getMessage() . '<br>' . nl2br(htmlentities($e->getTraceAsString()));
+  print $e->getMessage() . '<br>' . nl2br(htmlentities($e->getTraceAsString()));
 
 }

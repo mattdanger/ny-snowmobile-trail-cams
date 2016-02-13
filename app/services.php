@@ -20,10 +20,10 @@ $di->set('config', $config);
 $di->set('db', function () use ($config) {
 
   return new MysqlAdapter(array(
-    'host' 			=> $config->database->host,
-    'username'	=> $config->database->username,
-    'password'	=> $config->database->password,
-    'dbname'		=> $config->database->dbname
+    'host'      => $config->database->host,
+    'username'  => $config->database->username,
+    'password'  => $config->database->password,
+    'dbname'    => $config->database->dbname
   ));
 
 });
