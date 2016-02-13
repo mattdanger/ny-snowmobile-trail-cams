@@ -1,6 +1,9 @@
 var app = angular.module('nystc', []);
 
-app.controller('nystc_control', function($scope, $http, $interval) {
+app.controller('nystc_list', function($scope, $http, $interval) {
+
+
+  $scope.location = null;  
 
   load_locations();
 
@@ -9,14 +12,10 @@ app.controller('nystc_control', function($scope, $http, $interval) {
     $http.get('/api/locations').success(function(data) {
 
       $scope.locations = data;
-      $scope.loc  = data[0];
+      $scope.location = data[0];
 
     });
 
   };
 
-  $scope.setLocation = function(location) {
-    $scope.loc = location;
-  };
-    
 });
