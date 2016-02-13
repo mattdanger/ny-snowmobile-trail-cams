@@ -1,0 +1,1 @@
+# ny-snowmobile-trail-cams
