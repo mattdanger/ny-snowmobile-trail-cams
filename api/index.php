@@ -75,7 +75,7 @@ try {
   /**
    * GET /locations
    */
-  $app->get('/api/locations', function() use ($app) {
+  $app->get('/locations', function() use ($app) {
 
     $locations = $app->modelsManager->executeQuery("SELECT * FROM Nystc\Models\Location");
 
@@ -91,7 +91,7 @@ try {
   /**
    * GET /locations/$id
    */
-  $app->get('/api/locations/{id}', function($id) use ($app) {
+  $app->get('/locations/{id}', function($id) use ($app) {
 
     $result = $app->modelsManager
       ->executeQuery("SELECT * FROM Nystc\Models\Location WHERE id = :id:", array('id' => $id))

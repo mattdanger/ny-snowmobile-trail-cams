@@ -1,0 +1,26 @@
+/app/log
+/app/log/*
+/app/cache
+/app/cache/*
+/app/filestore/
+/app/config/config.php
+
+# Composer stuff.
+composer.phar
+composer.lock
+vendor
+
+# IDE stuff.
+.idea
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+# Other cruft.
+.sass-cache/
+*.css.map
+node_modules/
+.DS_Store
+Gemfile.lock
+
+
