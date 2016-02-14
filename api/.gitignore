@@ -4,6 +4,7 @@
 /app/cache/*
 /app/filestore/
 /app/config/config.php
+nystc.sql.gz
 
 # Composer stuff.
 composer.phar

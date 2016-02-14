@@ -19,7 +19,6 @@ class Location extends Model
   public function initialize()
   {
 
-/*     $this->hasOne('club_id', 'Nystc\Models\Club', 'id', array('alias' => 'Club')); */
     $this->hasMany('id', 'Nystc\Models\Camera', 'location_id', array('alias' => 'Cameras'));
 
   }
@@ -43,10 +42,8 @@ class Location extends Model
     return (object) [
       'name' => $this->name,
       'cameras' => $cameras,
-      'geo' => (object) [
-        'lat' => $this->lat,
-        'long' => $this->long,
-      ],
+      'lat' => $this->lat,
+      'long' => $this->long,
     ];
 
   }
