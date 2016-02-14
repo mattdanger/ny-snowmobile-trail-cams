@@ -14,7 +14,6 @@
     <script src='/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
     <script src='/bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
 
-    <script src="./angular/config.js"></script>
     <script src="./angular/app.js"></script>
 
   </head>
@@ -34,7 +33,7 @@
           <ui-gmap-windows show="show">
             <div ng-non-bindable>
               <h5>{{ title }}</h5>
-<!--               <img src="{{ cameras[0].url }}" width="350px"> -->
+              <img src="{{ cameras[0].url }}" width="350px">
             </div>
           </ui-gmap-windows>
         </ui-gmap-markers>
