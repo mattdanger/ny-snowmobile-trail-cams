@@ -33,6 +33,8 @@ app.controller('nystc_list', function($scope, $http, $interval, uiGmapGoogleMapA
 
         $scope.onClick = function(marker, eventName, model) {
 
+          $scope.location = model;
+
           model.show = !model.show;
 
         };
@@ -54,6 +56,7 @@ app.controller('nystc_list', function($scope, $http, $interval, uiGmapGoogleMapA
               longitude: l.long,
               options: { draggable: true },
               title: l.name,
+              name: l.name,
               cameras: l.cameras
             };
 

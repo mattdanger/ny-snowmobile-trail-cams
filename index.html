@@ -27,35 +27,28 @@
         </div>
       </div>
     
-      <div id="map_canvas">
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
-        <ui-gmap-markers models="locMarkers" coords="'self'" icon="'icon'" click="onClick">
-          <ui-gmap-windows show="show">
-            <div ng-non-bindable>
-              <h5>{{ title }}</h5>
-              <img src="{{ cameras[0].url }}" width="350px">
-            </div>
-          </ui-gmap-windows>
-        </ui-gmap-markers>
-      </div>
-
-      <hr>
-
       <div class="row">
-        <div class="col-lg-12">
-          <h4>Select a location to see cameras</h4>
-          <form>
-            <select ng-model="location" ng-options="location as location.name for location in locations"></select>
-          </form>
-        </div>
-      </div>
 
-      <h2>{{ location.name }}</h2>
-      <ul class="list-unstyled cameras">
-        <li ng-repeat="camera in location.cameras">
-          <img ng-src="{{ camera.url }}">
-        </li>
-      </ul>
+        <div class="col-lg-6 col-md-6">
+          <div id="map_canvas">
+            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+            <ui-gmap-markers models="locMarkers" coords="'self'" icon="'icon'" click="onClick">
+            </ui-gmap-markers>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <ul class="list-unstyled cameras">
+            <li ng-repeat="camera in location.cameras">
+              <img ng-src="{{ camera.url }}" class="camera">
+            </li>
+          </ul>
+          <h4>{{ location.name }}</h4>
+        </div>
+
+      </div>
+    
+      <hr>
 
     </div>
 

@@ -25,6 +25,17 @@ class Location extends Model
 
 
   /**
+   * After load event
+   */
+  public function afterLoad()
+  {
+
+    $this->data = json_decode($this->data);
+
+  }
+
+
+  /**
    * Build response
    *
    * @return object
