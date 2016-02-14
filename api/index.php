@@ -77,7 +77,7 @@ try {
    */
   $app->get('/locations', function() use ($app) {
 
-    $locations = $app->modelsManager->executeQuery("SELECT * FROM Nystc\Models\Location");
+    $locations = $app->modelsManager->executeQuery("SELECT * FROM Nystc\Models\Location ORDER BY name");
 
     $results = array();
     foreach ($locations as $l) {

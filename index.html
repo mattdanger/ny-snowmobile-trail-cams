@@ -1,27 +1,24 @@
 <html>
   <head>
     <title>NY Snowmobile Trail Cameras</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/nystc.css">
+
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<!--     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> -->
-<!--     <script src="//rawgit.com/angular-ui/angular-google-maps/2.3.2/dist/angular-google-maps.min.js"></script> -->
 
     <script src='/bower_components/lodash/dist/lodash.min.js'></script>
     <script src='/bower_components/angular/angular.min.js'></script>
     <script src='/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
     <script src='/bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
 
+    <script src="./angular/config.js"></script>
     <script src="./angular/app.js"></script>
-
-    <style type="text/css">
-    .angular-google-map-container { height: 400px; }
-    </style>
 
   </head>
   <body ng-app="nystc" ng-controller="nystc_list">
-
 
     <div class="container">
     
@@ -31,30 +28,35 @@
         </div>
       </div>
     
-      <div class="row">
-        <div class="col-lg-12">
-          <h3>Locations</h3>
-          <form>
-            <select ng-model="location" ng-options="location as location.name for location in locations"></select>
-          </form>
-        </div>
-      </div>
-
-
-      <hr>
-
-      <h2>{{ location.name }}</h2>
-
       <div id="map_canvas">
         <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
         <ui-gmap-markers models="locMarkers" coords="'self'" icon="'icon'" click="onClick">
           <ui-gmap-windows show="show">
             <div ng-non-bindable>
               <h5>{{ title }}</h5>
-              <img src="{{ cameras[0].url }}" width="350px">
+<!--               <img src="{{ cameras[0].url }}" width="350px"> -->
             </div>
           </ui-gmap-windows>
         </ui-gmap-markers>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <h4>Select a location to see cameras</h4>
+          <form>
+            <select ng-model="location" ng-options="location as location.name for location in locations"></select>
+          </form>
+        </div>
+      </div>
+
+      <h2>{{ location.name }}</h2>
+      <ul class="list-unstyled cameras">
+        <li ng-repeat="camera in location.cameras">
+          <img ng-src="{{ camera.url }}">
+        </li>
+      </ul>
 
     </div>
 
