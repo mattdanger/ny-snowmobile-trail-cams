@@ -13,9 +13,10 @@ An interactive web frontend for viewing NYS snowmobile trail web cams
 ## Installation
 
 1. Checkout this project and configure your webserver to serve the project root
-2. Run `composer update` from the project root
-3. Gunzip `nystc.sql.gz` and import the file to a MySQL database
-4. Copy `app/config/config-sample.php` to `app/config/config.php` and configure your local settings.
+2. Run `bower install` from the project root
+3. `cd api` then run `composer update` 
+3. Gunzip `api/database.sql.gz` and import the file to a MySQL database
+4. Copy `api/app/config/config-sample.php` to `/api/app/config/config.php` and configure your local settings.
 
 ## Contributors
 
