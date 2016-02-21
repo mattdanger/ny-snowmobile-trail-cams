@@ -40,10 +40,10 @@
         <div class="col-lg-6 col-md-6">
           <ul class="list-unstyled cameras">
             <li ng-repeat="camera in location.cameras">
-              <img ng-src="{{ camera.url }}" class="camera">
+              <a target="_blank" href="{{ location.url }}"><img ng-src="{{ camera.url }}" class="camera" border="0"></a>
             </li>
           </ul>
-          <h4>{{ location.name }}</h4>
+          <h4><a target="_blank" href="{{ location.url }}">{{ location.name }}</a></h4>
         </div>
 
       </div>

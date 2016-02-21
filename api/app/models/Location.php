@@ -52,6 +52,7 @@ class Location extends Model
 
     return (object) [
       'name' => $this->name,
+      'url' => $this->url,
       'cameras' => $cameras,
       'lat' => $this->lat,
       'long' => $this->long,

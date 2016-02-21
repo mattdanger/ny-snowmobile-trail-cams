@@ -57,6 +57,7 @@ app.controller('nystc_list', function($scope, $http, $interval, uiGmapGoogleMapA
               options: { draggable: true },
               title: l.name,
               name: l.name,
+              url: l.url,
               cameras: l.cameras
             };
 
