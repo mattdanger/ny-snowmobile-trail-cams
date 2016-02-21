@@ -27,7 +27,7 @@ app.controller('nystc_list', function($scope, $http, $interval, uiGmapGoogleMapA
       uiGmapGoogleMapApi.then(function(maps) {
 
         // Init map    
-        $scope.map = { center: { latitude: 43.592026, longitude: -75.670652 }, zoom: 8 };
+        $scope.map = { center: { latitude: 43.270908, longitude: -76.988348 }, zoom: 7 };
 
         $scope.locMarkers = [];
 
